@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 import 'components/custom_text_field.dart';
@@ -8,14 +9,66 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightGreenAccent,
+      backgroundColor: Colors.lightGreen,
       body: Column(
         children: [
           Expanded(
-              child: Container(
-                color: Colors.lightGreenAccent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  [
+
+                  const Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                            fontSize: 38,
+                        ),
+                        children: [
+                          TextSpan(
+                              text: 'Quitanda',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' online',
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              )
+                          )
+                        ]
+                      )
+
+                  ),
+
+                  //Categorias
+                  SizedBox(
+                    height: 30,
+                    child: DefaultTextStyle(
+                      //Tamanho do texto animado
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
+                      child: AnimatedTextKit(
+                        repeatForever: true,
+                        pause: Duration.zero,
+                        animatedTexts: [
+                          FadeAnimatedText('Frutas'),
+                          FadeAnimatedText('Verduras'),
+                          FadeAnimatedText('Legumes'),
+                          FadeAnimatedText('Carnes'),
+                          FadeAnimatedText('Cereais'),
+                          FadeAnimatedText('Laticínios'),
+                          FadeAnimatedText('Te amo morecuda'),
+                        ]),
+                    ),
+                  )
+                ],
               )
           ),
+
+          //Form
           Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 32,
