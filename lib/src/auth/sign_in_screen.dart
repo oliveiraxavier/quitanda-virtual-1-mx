@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:quitanda_virtual_mx/src/auth/sign_up_screen.dart';
 
 import '../config/custom_colors.dart';
 import 'components/custom_text_field.dart';
@@ -108,8 +109,6 @@ class SignInScreen extends StatelessWidget {
                       height: 45,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.lightGreen,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)
                           )
@@ -178,7 +177,13 @@ class SignInScreen extends StatelessWidget {
                               color: Colors.green,
                             )
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (c) {
+                                return SignUpScreen();
+                              })
+                            );
+                          },
                           child: const Text(
                               'Criar conta',
                               style: TextStyle(
