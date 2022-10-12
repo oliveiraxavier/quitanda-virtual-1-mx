@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Quitanda',
       theme: ThemeData(
         primarySwatch: Colors.green,
+        scaffoldBackgroundColor: Colors.white.withAlpha(190)
       ),
       home: const SignInScreen(),
     );
