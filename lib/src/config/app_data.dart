@@ -1,21 +1,20 @@
 
 import 'package:quitanda_virtual_mx/src/models/item_model.dart';
 
+ItemModel abacaxi = ItemModel(
+    description: 'O melhor abacaxi da região e que conta com o melhor preço de qualquer concorrente',
+    imgUrl: 'assets/fruits/abacaxi.png',
+    itemName: 'Abacaxi',
+    price: 7.4,
+    unit: 'kg'
+);
 
-ItemModel apple = ItemModel(
+ItemModel maca = ItemModel(
   description: 'A melhor maçã da região e que conta com o melhor preço de qualquer concorrente',
-  imgUrl: 'assets/fruits/apple.png',
+  imgUrl: 'assets/fruits/maca.png',
   itemName: 'Maçã',
   price: 5.5,
   unit: 'kg'
-);
-
-ItemModel grape = ItemModel(
-    description: 'A melhor uva da região e que conta com o melhor preço de qualquer concorrente',
-    imgUrl: 'assets/fruits/grape.png',
-    itemName: 'Uva',
-    price: 7.4,
-    unit: 'kg'
 );
 
 ItemModel goiaba = ItemModel(
@@ -50,13 +49,22 @@ ItemModel manga = ItemModel(
     unit: 'kg'
 );
 
+ItemModel uva = ItemModel(
+    description: 'A melhor uva da região e que conta com o melhor preço de qualquer concorrente',
+    imgUrl: 'assets/fruits/grape.png',
+    itemName: 'Uva',
+    price: 7.4,
+    unit: 'kg'
+);
+
 List<ItemModel> items = [
-  apple,
-  grape,
+  abacaxi,
   goiaba,
   kiwi,
+  maca,
   mamao,
   manga,
+  uva,
 ];
 
 List<String> categories = [

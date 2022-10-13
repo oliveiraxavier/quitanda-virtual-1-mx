@@ -1,8 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import '../../config/app_data.dart' as app_data;
 import '../../config/custom_colors.dart';
+import 'components/item_tile.dart';
 import 'components/category_tile.dart';
-import 'package:quitanda_virtual_mx/src/config/app_data.dart' as app_data;
 
 class HomeTab extends StatefulWidget {
 
@@ -139,9 +140,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               itemCount: app_data.items.length,
               itemBuilder: (_, index) {
-                return Container(
-                  color: Colors.red,
-                );
+                return ItemTile(item: app_data.items[index]);
               },
             ),
           ),
