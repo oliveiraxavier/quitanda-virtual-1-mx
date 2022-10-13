@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
 
                   //Form
                   Container(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 32,
                       vertical: 40,
                     ),
@@ -82,12 +82,13 @@ class SignUpScreen extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
-                              )
+                              ),
                             ),
                             onPressed: () {},
-                            child: const Text('Cadastrar usuário',
+                            child: const Text(
+                              'Cadastrar usuário',
                               style: TextStyle(
-                                fontSize: 16
+                                fontSize: 16,
                               ),
                             ),
                           ),

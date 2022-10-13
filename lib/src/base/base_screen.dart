@@ -26,18 +26,18 @@ class _BaseScreenState extends State<BaseScreen> {
           });
         },
         children: [
-          const HomeTab(),
+          HomeTab(),
           Container(
             color: Colors.yellow,
-            child: Text('CARRINHO'),
+            child: const Text('CARRINHO'),
           ),
           Container(
             color: Colors.blue,
-            child: Text('PEDIDOS'),
+            child: const Text('PEDIDOS'),
           ),
           Container(
             color: Colors.purple,
-            child: Text('PERFIL'),
+            child: const Text('PERFIL'),
           ),
         ],
       ),
