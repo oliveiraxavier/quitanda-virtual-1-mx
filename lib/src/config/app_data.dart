@@ -6,7 +6,7 @@ ItemModel abacaxi = ItemModel(
     imgUrl: 'assets/fruits/abacaxi.png',
     itemName: 'Abacaxi',
     price: 7.4,
-    unit: 'kg'
+    unit: 'unid'
 );
 
 ItemModel maca = ItemModel(
