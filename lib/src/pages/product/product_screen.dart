@@ -113,6 +113,7 @@ class _ProductScreenState extends State<ProductScreen> {
                               ),
                             ),
                             style: ElevatedButton.styleFrom(
+                              backgroundColor: CustomColors.customSwatchColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
