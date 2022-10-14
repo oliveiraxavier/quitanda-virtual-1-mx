@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../cart/cart_tab.dart';
 import '../home/home_tab.dart';
+import '../profile/profile_tab.dart';
 
 class BaseScreen extends StatefulWidget{
   const BaseScreen({super.key});
@@ -28,15 +29,12 @@ class _BaseScreenState extends State<BaseScreen> {
         },
         children: [
           const HomeTab(),
-          CartTab(),
-          Container(
-            color: Colors.blue,
-            child: const Text('PEDIDOS'),
-          ),
+          const CartTab(),
           Container(
             color: Colors.purple,
             child: const Text('PERFIL'),
           ),
+          const ProfileTab(),
         ],
       ),
 

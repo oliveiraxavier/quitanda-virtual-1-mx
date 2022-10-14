@@ -1,5 +1,6 @@
 import 'package:quitanda_virtual_mx/src/models/cart_item_model.dart';
 import 'package:quitanda_virtual_mx/src/models/item_model.dart';
+import 'package:quitanda_virtual_mx/src/models/user_model.dart';
 
 ItemModel abacaxi = ItemModel(
     description:
@@ -89,3 +90,11 @@ List<CartItemModel> cartItems = [
     quantity: 1,
   ),
 ];
+
+UserModel user = UserModel(
+  name: 'Marcos Dev',
+  email: 'mail@localhost.com',
+  phone: '(11) 9 12345678',
+  cpf: '123.123.123-00',
+  password: '',
+);
