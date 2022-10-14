@@ -55,6 +55,7 @@ class ItemTile extends StatelessWidget {
                         color: CustomColors.customSwatchColor,
                       ),
                     ),
+
                     Text(
                       '/${item.unit}',
                       style: TextStyle(
