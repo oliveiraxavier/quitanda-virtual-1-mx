@@ -95,8 +95,10 @@ class _ProfileTabState extends State<ProfileTab> {
     return showDialog(
       context: context,
       builder: (context) {
-        return SingleChildScrollView(
-             child: Dialog(
+        return
+           SingleChildScrollView(
+           child: Dialog(
+              insetPadding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 80.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -147,7 +149,15 @@ class _ProfileTabState extends State<ProfileTab> {
                                 ),
                               ),
                               onPressed: () {},
-                              child: Text('Salvar')),
+                              child: Text(
+                                'Salvar',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
+                              ),
+
+                              //textAlign: TextAlign.center,
+                          ),
                         ),
                       ],
                     ),
