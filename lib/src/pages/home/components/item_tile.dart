@@ -46,17 +46,18 @@ class ItemTile extends StatelessWidget {
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold)),
                   //Preco - Unidade
-                  Row(children: [
-                    Text(
-                      utilsServices.priceToCurrency(item.price),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: CustomColors.customSwatchColor,
-                      ),
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                          utilsServices.priceToCurrency(item.price),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: CustomColors.customSwatchColor,
+                          ),
+                        ),
 
-                    Text(
+                      Text(
                       '/${item.unit}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -64,7 +65,8 @@ class ItemTile extends StatelessWidget {
                         color: Colors.grey.shade500,
                       ),
                     ),
-                  ])
+                    ]
+                  ),
                 ],
               ),
             ),

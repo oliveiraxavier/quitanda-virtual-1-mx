@@ -30,7 +30,9 @@ class _ProductScreenState extends State<ProductScreen> {
             children: [
               //Imagem
               Expanded(
-                child: Hero(tag: widget.item.imgUrl, child: Image.asset(widget.item.imgUrl)),
+                child: Hero(
+                    tag: widget.item.imgUrl,
+                    child: Image.asset(widget.item.imgUrl)),
               ),
 
               //Card

@@ -95,89 +95,89 @@ class _ProfileTabState extends State<ProfileTab> {
     return showDialog(
       context: context,
       builder: (context) {
-        return
-           SingleChildScrollView(
-           child: Dialog(
-              insetPadding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 80.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 5, bottom: 16),
-                          child: Text(
-                            'Atualização de senha',
+        return SingleChildScrollView(
+          child: Dialog(
+            insetPadding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 80.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 5, bottom: 16),
+                        child: Text(
+                          'Atualização de senha',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const CustomTextField(
+                        icon: Icons.lock,
+                        label: 'Senha Atual',
+                        isSecret: true,
+                      ),
+                      const CustomTextField(
+                        icon: Icons.lock_outline,
+                        label: 'Nova senha',
+                        isSecret: true,
+                      ),
+                      const CustomTextField(
+                        icon: Icons.lock_outline,
+                        label: 'Confirmar nova senha',
+                        isSecret: true,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      //Botão confirmação
+                      SizedBox(
+                        height: 50,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            'Salvar',
                             style: TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
                             ),
-                            textAlign: TextAlign.center,
                           ),
-                        ),
-                        const CustomTextField(
-                          icon: Icons.lock,
-                          label: 'Senha Atual',
-                          isSecret: true,
-                        ),
-                        const CustomTextField(
-                          icon: Icons.lock_outline,
-                          label: 'Nova senha',
-                          isSecret: true,
-                        ),
-                        const CustomTextField(
-                          icon: Icons.lock_outline,
-                          label: 'Confirmar nova senha',
-                          isSecret: true,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        //Botão confirmação
-                        SizedBox(
-                          height: 50,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: Text(
-                                'Salvar',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                ),
-                              ),
 
-                              //textAlign: TextAlign.center,
-                          ),
+                          //textAlign: TextAlign.center,
                         ),
-                      ],
-                    ),
-                  ),
-
-                  // Fechar dialog
-                  Positioned(
-                    top: 2,
-                    right: 2,
-                    child: IconButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      icon: const Icon(
-                        Icons.close,
                       ),
+                    ],
+                  ),
+                ),
+
+                // Fechar dialog
+                Positioned(
+                  top: 2,
+                  right: 2,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: const Icon(
+                      Icons.close,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
+          ),
+        );
       },
     );
   }
