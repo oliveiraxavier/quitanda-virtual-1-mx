@@ -102,6 +102,28 @@ UserModel user = UserModel(
 
 List<OrderModel> orders = [
   OrderModel(
+    id: 'pa-4567',
+    createdDateTime: DateTime.parse(
+      '2022-10-22 12:10:12.450',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2022-10-22 22:15:12.450',
+    ),
+    items: [
+      CartItemModel(
+        item: manga,
+        quantity: 1,
+      ),
+      CartItemModel(
+        item: abacaxi,
+        quantity: 1,
+      ),
+    ],
+    status: 'pending_payment',
+    copyAndPaste: 'qwerqsder',
+    total: 12.9,
+  ),
+  OrderModel(
     id: 'pa-123',
     createdDateTime: DateTime.parse(
       '2022-10-15 22:10:12.450',
@@ -142,28 +164,6 @@ List<OrderModel> orders = [
       ),
     ],
     status: 'refunded',
-    copyAndPaste: 'qwerqsder',
-    total: 12.9,
-  ),
-  OrderModel(
-    id: 'pa-4567',
-    createdDateTime: DateTime.parse(
-      '2022-10-22 12:10:12.450',
-    ),
-    overdueDateTime: DateTime.parse(
-      '2022-10-22 22:15:12.450',
-    ),
-    items: [
-      CartItemModel(
-        item: manga,
-        quantity: 1,
-      ),
-      CartItemModel(
-        item: abacaxi,
-        quantity: 1,
-      ),
-    ],
-    status: 'delivered',
     copyAndPaste: 'qwerqsder',
     total: 12.9,
   ),
