@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quitanda_virtual_mx/src/models/order_model.dart';
+import 'package:quitanda_virtual_mx/src/pages/orders/components/order_status_widget.dart';
 import 'package:quitanda_virtual_mx/src/services/utils_services.dart';
 
 import '../../../models/cart_item_model.dart';
@@ -38,45 +39,40 @@ class OrderTile extends StatelessWidget {
               ),
             ],
           ),
-          // subtitle: Container(
-          //   padding: const EdgeInsets.only(left: 35, right: 0),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.stretch,
-          //     mainAxisAlignment: MainAxisAlignment.end,
-          //     children: [
-          //       ElevatedButton(
-          //         style: ElevatedButton.styleFrom(
-          //           shape: RoundedRectangleBorder(
-          //             borderRadius: BorderRadius.circular(15),
-          //           ),
-          //         ),
-          //         onPressed: () {},
-          //         child: Text('Ver código pixx'),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           children: [
-            SizedBox(
-              height: 150,
+            IntrinsicHeight(
               child: Row(
                 children: [
+                  //Lista de produtos
                   Expanded(
                     flex: 3,
-                    child: ListView(
-                      children: order.items.map((orderItem) {
-                        return _OrderItemTileWidget(
-                            utilsServices: utilsServices,
-                            orderItem: orderItem
-                        );
-                      }).toList(),
+                    child: SizedBox(
+                      height: 150,
+                      child: ListView(
+                        children: order.items.map((orderItem) {
+                          return _OrderItemTileWidget(
+                              utilsServices: utilsServices,
+                              orderItem: orderItem
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
+
+                  //Divisão
+                  const VerticalDivider(
+                    color: Colors.black12,
+                    thickness: 1.5,
+                    width: 8,
+                  ),
+                  //Status do pedido
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      color: Colors.blue,
+                    child: OrderStatusWidget(
+                      status: order.status,
+                      isOverdue: order.overdueDateTime.isBefore(DateTime.now()),
+
                     ),
                   ),
                 ],
