@@ -10,7 +10,7 @@ class ItemTile extends StatelessWidget {
 
   ItemTile({Key? key, required this.item}) : super(key: key);
 
-  UtilsServices utilsServices = UtilsServices();
+  final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {

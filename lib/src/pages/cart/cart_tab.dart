@@ -3,6 +3,7 @@ import 'package:quitanda_virtual_mx/src/config/custom_colors.dart';
 import 'package:quitanda_virtual_mx/src/models/cart_item_model.dart';
 import 'package:quitanda_virtual_mx/src/services/utils_services.dart';
 import 'package:quitanda_virtual_mx/src/config/app_data.dart' as app_data;
+import '../common_widgets/payment_dialog.dart';
 
 import 'components/cart_tile.dart';
 
@@ -55,6 +56,7 @@ class _CartTabState extends State<CartTab> {
           const SizedBox(
             height: 20,
           ),
+
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -102,6 +104,15 @@ class _CartTabState extends State<CartTab> {
                     ),
                     onPressed: () async {
                       bool? result = await showOrderConfirmation();
+                      if (result ?? false) {
+                        showDialog(
+                            context: context,
+                            builder: (_) {
+                              return PaymentDialog(
+                                order: app_data.orders.first,
+                              );
+                            });
+                      }
                     },
                     child: const Text('Finalizar pedido'),
                   ),

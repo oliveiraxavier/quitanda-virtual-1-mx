@@ -21,7 +21,7 @@ class _OrdersTabState extends State<OrdersTab> {
       body: ListView.separated(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(16),
-        separatorBuilder: (_, index) => SizedBox(height: 10,),
+        separatorBuilder: (_, index) => const SizedBox(height: 10,),
         itemBuilder: (_, index) => OrderTile(order: app_data.orders[index]),
         itemCount: app_data.orders.length,
       ),
