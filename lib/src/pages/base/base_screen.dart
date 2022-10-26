@@ -4,7 +4,7 @@ import '../home/home_tab.dart';
 import '../profile/profile_tab.dart';
 import '../orders/orders_tab.dart';
 
-class BaseScreen extends StatefulWidget{
+class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
 
   @override
@@ -42,7 +42,11 @@ class _BaseScreenState extends State<BaseScreen> {
         onTap: (index) {
           setState(() {
             currentIndex = index;
-            pageController.jumpToPage(index);
+            pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 700),
+              curve: Curves.easeInCirc,
+            );
           });
         },
         backgroundColor: Colors.green,
@@ -51,8 +55,8 @@ class _BaseScreenState extends State<BaseScreen> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Home',
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart_outlined),
