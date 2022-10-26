@@ -10,7 +10,6 @@ import 'components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
-
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
