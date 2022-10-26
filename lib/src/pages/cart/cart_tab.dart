@@ -20,6 +20,7 @@ class _CartTabState extends State<CartTab> {
   void removeItemFromCart(CartItemModel cartItemModel) {
     setState(() {
       app_data.cartItems.remove(cartItemModel);
+      utilsServices.showToast(message: 'Item removido do carrinho');
     });
   }
 
@@ -112,6 +113,8 @@ class _CartTabState extends State<CartTab> {
                                 order: app_data.orders.first,
                               );
                             });
+                      } else {
+                        utilsServices.showToast(message: 'Pedido não confirmado', isWarning: true);
                       }
                     },
                     child: const Text('Finalizar pedido'),

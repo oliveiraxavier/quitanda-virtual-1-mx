@@ -2,6 +2,7 @@ import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:add_to_cart_animation/add_to_cart_icon.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+
 import '../../config/app_data.dart' as app_data;
 import '../../config/custom_colors.dart';
 import 'components/item_tile.dart';
