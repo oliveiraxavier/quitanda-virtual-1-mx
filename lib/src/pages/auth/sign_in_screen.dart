@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quitanda_virtual_mx/src/pages/auth/sign_up_screen.dart';
 import '../../config/custom_colors.dart';
 import '../base/base_screen.dart';
+import '../common_widgets/app_name_widget.dart';
 import '../common_widgets/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -26,29 +27,11 @@ class SignInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:  [
 
-                      Text.rich(
-                          TextSpan(
-                            style: const TextStyle(
-                                fontSize: 38,
-                            ),
-                            children: [
-                              const TextSpan(
-                                  text: 'Quitanda',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                              ),
-                              TextSpan(
-                                  text: ' online',
-                                  style: TextStyle(
-                                    color: CustomColors.customContrastColor,
-                                    fontWeight: FontWeight.normal,
-                                  )
-                              )
-                            ]
-                          )
+                      // Nome do app
 
+                      const AppNameWidget(
+                        greenTitleColor: Colors.white,
+                        textSize: 40,
                       ),
 
                       //Categorias

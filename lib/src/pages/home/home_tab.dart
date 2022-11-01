@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 
 import '../../config/app_data.dart' as app_data;
 import '../../config/custom_colors.dart';
+import '../common_widgets/app_name_widget.dart';
 import 'components/item_tile.dart';
 import 'components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
+
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
@@ -31,24 +33,8 @@ class _HomeTabState extends State<HomeTab> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text.rich(
-          TextSpan(children: [
-            TextSpan(
-              text: 'Quitanda',
-              style: TextStyle(
-                color: CustomColors.customSwatchColor,
-              ),
-            ),
-            TextSpan(
-              text: ' online',
-              style: TextStyle(
-                color: CustomColors.customContrastColor,
-              ),
-            ),
-          ]),
-        ),
+        title: const AppNameWidget(),
         actions: [
-
           //Icone carrinho topo
           Padding(
             padding: const EdgeInsets.only(
@@ -159,7 +145,7 @@ class _HomeTabState extends State<HomeTab> {
                 itemBuilder: (_, index) {
                   return ItemTile(
                     item: app_data.items[index],
-                    cartAnimationMethod: itemSelectedCartAnimations
+                    cartAnimationMethod: itemSelectedCartAnimations,
                   );
                 },
               ),
@@ -170,3 +156,4 @@ class _HomeTabState extends State<HomeTab> {
     );
   }
 }
+
