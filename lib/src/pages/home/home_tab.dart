@@ -2,6 +2,7 @@ import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:add_to_cart_animation/add_to_cart_icon.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:quitanda_virtual_mx/src/pages/common_widgets/custom_shimmer.dart';
 
 import '../../config/app_data.dart' as app_data;
 import '../../config/custom_colors.dart';
@@ -23,6 +24,19 @@ class _HomeTabState extends State<HomeTab> {
 
   void itemSelectedCartAnimations(GlobalKey gkImage) {
     runAddToCardAnimation(gkImage);
+  }
+
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
   }
 
   @override
@@ -109,46 +123,80 @@ class _HomeTabState extends State<HomeTab> {
             Container(
               padding: const EdgeInsets.only(left: 6),
               height: 40,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_, int index) {
-                  return CategoryTile(
-                    onPressed: () {
-                      setState(() {
-                        selectedCategory = app_data.categories[index];
-                      });
-                    },
-                    category: app_data.categories[index],
-                    isSelected: app_data.categories[index] == selectedCategory,
-                  );
-                },
-                separatorBuilder: (_, int index) => const SizedBox(
-                  width: 10,
-                ),
-                itemCount: app_data.categories.length,
-              ),
+              child: !isLoading
+                  ? ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, int index) {
+                        return CategoryTile(
+                          onPressed: () {
+                            setState(() {
+                              selectedCategory = app_data.categories[index];
+                            });
+                          },
+                          category: app_data.categories[index],
+                          isSelected:
+                              app_data.categories[index] == selectedCategory,
+                        );
+                      },
+                      separatorBuilder: (_, int index) => const SizedBox(
+                        width: 10,
+                      ),
+                      itemCount: app_data.categories.length,
+                    )
+                  : ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: List.generate(5, (_) => Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                        alignment: Alignment.center,
+
+                        child: CustomShimmer(
+                              height:20,
+                              width: 80,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                      ),
+                        ),
+                    ),
             ),
             // Categorias
 
             // Grid  Produtos
             Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                physics: const BouncingScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 9 / 11.5,
-                ),
-                itemCount: app_data.items.length,
-                itemBuilder: (_, index) {
-                  return ItemTile(
-                    item: app_data.items[index],
-                    cartAnimationMethod: itemSelectedCartAnimations,
-                  );
-                },
-              ),
+              child: !isLoading
+                  ? GridView.builder(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                      physics: const BouncingScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 9 / 11.5,
+                      ),
+                      itemCount: app_data.items.length,
+                      itemBuilder: (_, index) {
+                        return ItemTile(
+                          item: app_data.items[index],
+                          cartAnimationMethod: itemSelectedCartAnimations,
+                        );
+                      },
+                    )
+                  : GridView.count(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                      physics: const BouncingScrollPhysics(),
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 9 / 11.5,
+                      children: List.generate(
+                        4,
+                        (_) => CustomShimmer(
+                          height: double.infinity,
+                          width: double.infinity,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
             ),
           ],
         ),
@@ -156,4 +204,3 @@ class _HomeTabState extends State<HomeTab> {
     );
   }
 }
-
